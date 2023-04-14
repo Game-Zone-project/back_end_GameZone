@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS games;  
+CREATE TABLE IF NOT EXISTS games(
+id SERIAL PRIMARY KEY,
+title VARCHAR(255),
+genre VARCHAR(255),
+image VARCHAR(255),
+review VARCHAR(500),
+rating DECIMAL(5,1),
+release_date DATE,
+game_URL VARCHAR(255)
+);
