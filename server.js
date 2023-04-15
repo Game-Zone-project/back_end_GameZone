@@ -27,6 +27,8 @@ app.post('/addGame', addGameHandler);
 app.delete('/DELETE/:id', deleteGameHandler);
 //http://localhost:3000/updateGames/4
 app.put('/updateGames/:id', updateGamesHandler);
+//http://localhost:3000/addWishList
+app.post('/addWishList', addWishListHandler);
 
 
 //handleserver error
@@ -102,7 +104,7 @@ function deleteGameHandler(req, res) {
     // })
 }
 
-function updateGamesHandler(req, res){
+function updateGamesHandler(req, res) {
     let [id] = req.params.id
     let { review } = req.body
     let sql = "UPDATE games SET review=$1 WHERE id=$2 RETURNING *;";
@@ -114,16 +116,32 @@ function updateGamesHandler(req, res){
         }).catch()
 }
 
-//500 not found 
-// function handleServerError(err,req, res) {
-//     res.status(500).send({status:500,responseText:"Sorry, something went wrong"});
-//}
-//404 not found error
+function addWishListHandler(req, res) {
+    let { title, genre, image, review, rating, release_date, game_URL } = req.body;
+    let sql = `INSERT INTO wishlist (title, genre, image, review, rating, release_date, game_URL) 
+        VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING *;`
+    let values = [title, genre, image, review, rating, release_date, game_URL];
+    client.query(sql, values).then(result => {
+        res.status(201).json(result.rows);
+    }).catch();
+}
 
+
+//404 not found error
 function handleNotFoundError(req, res) {
     console.log("hi");
     res.status(404).send("Not Found !");
 }
+
+//Handle 500 Error
+app.use(function (err, req, res, next) {
+    console.error(err.stack);
+    res.status(500).send({
+        status: 500,
+        responseText: 'Sorry, something went wrong'
+    });
+});
+
 
 client.connect()
     .then(() => {
