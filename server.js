@@ -45,6 +45,7 @@ function homeHandler(req, res) {
         .catch((err) => { console.log(err); })
 }
 
+
 function addGameHandler(req, res) {
     let { title, genre, image, review, rating, release_date, game_URL } = req.body;
     let sql = `INSERT INTO games (title, genre, image, review, rating, release_date, game_URL) 
