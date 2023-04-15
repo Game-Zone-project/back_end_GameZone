@@ -33,12 +33,20 @@
 <li>\l to how your tables</li>
 <li>create schema.sql file and inside create table games</li>
 <li>connect the database with schema.sql using this command ( "psql  -d games_data -f schema.sql")</li>
+<li>Create a new table "wishlist" inside schema.sql file</li>
 </ul>
 
-# Add new routes :
+# Add new Routes : to handle two tables (games,wishlist) CRUD.
 
-* create new route ===> get all Games 
-* Routes ====> /DELETE/:id
-* Routes ======> /updateGames/:id'
+* Route ====> get all Games 
+* Route ====> /DELETE/:id
+* Route ====> /updateGames/:id
+* Route ====> /addGame
+* Route ====> /addWishList
+* Route ====> /getAllWishList
+* Route ====> /DELETEwishL/:id
+
+
+
 
 
