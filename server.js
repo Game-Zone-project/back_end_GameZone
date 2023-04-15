@@ -3,14 +3,21 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+const bodyParser = require('body-parser');
 require('dotenv').config();
 const app = express();
 app.use(cors());
 const port = process.env.PORT;
 const API_URL = process.env.API_URL;
 
+
+
 //    Routes
-app.get('/', homeHandler);// get all games data
+//   http://localhost:3000/
+app.get('/', homeHandler);
+
+
+
 
 
 //creating a constructor for Games
@@ -36,6 +43,8 @@ function homeHandler(req, res) {
         .catch((err) => { console.log(err); })
 }
 
+
+
 app.listen(port, () => {
-    console.log(`listening on port ${port}`);
+    console.log(`Listening to server using ${port}`);
 })
