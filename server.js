@@ -31,6 +31,7 @@ app.put('/updateGames/:id', updateGamesHandler);
 app.post('/addWishList', addWishListHandler);
 
 
+
 //handleserver error
 //app.use(handleServerError);
 
@@ -125,7 +126,6 @@ function addWishListHandler(req, res) {
         res.status(201).json(result.rows);
     }).catch();
 }
-
 
 //404 not found error
 function handleNotFoundError(req, res) {
