@@ -10,3 +10,15 @@ release_date DATE,
 game_URL VARCHAR(255)
 );
 
+DROP TABLE IF EXISTS wishlist;  
+CREATE TABLE IF NOT EXISTS wishlist(
+id SERIAL PRIMARY KEY,
+title VARCHAR(255),
+genre VARCHAR(255),
+image VARCHAR(255),
+review VARCHAR(500),
+rating DECIMAL(5,1),
+release_date DATE,
+game_URL VARCHAR(255)
+);
+
