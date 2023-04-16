@@ -33,6 +33,7 @@ app.post('/addWishList', addWishListHandler);
 app.get('/getAllWishList', getAllWishListHandler);
 
 
+
 //handleserver error
 //app.use(handleServerError);
 
@@ -128,6 +129,7 @@ function addWishListHandler(req, res) {
     }).catch();
 }
 
+
 function getAllWishListHandler(req,res){
 
     let sql = `SELECT * FROM wishlist;`
@@ -139,7 +141,6 @@ function getAllWishListHandler(req,res){
 }
 
 
-//404 not found error
 function handleNotFoundError(req, res) {
     console.log("hi");
     res.status(404).send("Not Found !");
