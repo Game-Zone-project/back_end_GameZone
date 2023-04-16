@@ -4,7 +4,6 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
-const bodyParser = require('body-parser');
 require('dotenv').config();
 const app = express();
 app.use(cors());
@@ -74,6 +73,7 @@ function getAllGamesHandlers(req, res) {
     //     handleServerError(error,req, res);
     // })
 }
+
 
 function addGameHandler(req, res) {
     let { title, genre, image, review, rating, release_date, game_URL } = req.body;
