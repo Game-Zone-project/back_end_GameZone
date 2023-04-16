@@ -9,3 +9,4 @@ rating DECIMAL(5,1),
 release_date DATE,
 game_URL VARCHAR(255)
 );
+

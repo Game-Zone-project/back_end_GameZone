@@ -15,7 +15,7 @@
 
 -------------------------------------
 
-## 1- Building the Server.
+#  Building the Server.
 <ul>
 <li> Make the server listen to port</li>
 <li> Creating the Home Route '/'</li>
@@ -26,7 +26,7 @@
 
 -------------------------------------------
 
-## 2- Building The Database.
+#  Building The Database.
 <ul>
 <li>install database postgres "npm install pg"</</li>
 <li>create database "movie_data"</li>
@@ -34,3 +34,11 @@
 <li>create schema.sql file and inside create table games</li>
 <li>connect the database with schema.sql using this command ( "psql  -d games_data -f schema.sql")</li>
 </ul>
+
+# Add new routes :
+
+* create new route ===> get all Games 
+* Routes ====> /DELETE/:id
+* Routes ======> /updateGames/:id'
+
+
