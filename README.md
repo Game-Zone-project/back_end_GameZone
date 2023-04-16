@@ -29,8 +29,8 @@
 #  Building The Database.
 <ul>
 <li>install database postgres "npm install pg"</</li>
-<li>create database "movie_data"</li>
-<li>\l to how your tables</li>
+<li>create database "games_data"</li>
+<li>\l to show your tables</li>
 <li>create schema.sql file and inside create table games</li>
 <li>connect the database with schema.sql using this command ( "psql  -d games_data -f schema.sql")</li>
 <li>Create a new table "wishlist" inside schema.sql file</li>
@@ -38,13 +38,14 @@
 
 # Add new Routes : to handle two tables (games,wishlist) CRUD.
 
-* Route ====> get all Games 
+* Route ====> /getAllGame 
 * Route ====> /DELETE/:id
 * Route ====> /updateGames/:id
 * Route ====> /addGame
 * Route ====> /addWishList
 * Route ====> /getAllWishList
 * Route ====> /DELETEwishL/:id
+* Route ====> /
 
 
 

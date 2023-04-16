@@ -58,22 +58,26 @@ function Games(title, thumbnail, description, genre, game_url, release_date) {
 
 
 function homeHandler(req, res) {
-    axios.get(API_URL)
+    axios
+        .get(API_URL)
         .then((result) => {
-            let shapedData = result.data.map((game) => {
-                return new Games(game.title, game.thumbnail, game.short_description, game.genre, game.game_url, game.release_date)
-            })
+            let shapedData = result.data
+                .map((game) => {
+                    return new Games(game.title, game.thumbnail, game.short_description, game.genre, game.game_url, game.release_date);
+                })
+                .slice(0, 40);
             res.json(shapedData);
-        }).catch()
-    // .catch((error)=>{
-    //     handleServerError(error,req, res);
-    // })
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+
 }
+
 
 function getAllGamesHandlers(req, res) {
     let sql = `SELECT * FROM games;`
     client.query(sql).then((result) => {
-        //console.log(result.rows);
         res.json(result.rows);
     }).catch()
     // .catch((error)=>{
