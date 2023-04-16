@@ -29,6 +29,8 @@ app.delete('/DELETE/:id', deleteGameHandler);
 app.put('/updateGames/:id', updateGamesHandler);
 //http://localhost:3000/addWishList
 app.post('/addWishList', addWishListHandler);
+//http://localhost:3000/addWishList
+app.get('/getAllWishList', getAllWishListHandler);
 
 
 //handleserver error
@@ -124,6 +126,16 @@ function addWishListHandler(req, res) {
     client.query(sql, values).then(result => {
         res.status(201).json(result.rows);
     }).catch();
+}
+
+function getAllWishListHandler(req,res){
+
+    let sql = `SELECT * FROM wishlist;`
+    client.query(sql).then((result) => {
+        //console.log(result.rows);
+        res.json(result.rows);
+    }).catch()
+
 }
 
 
