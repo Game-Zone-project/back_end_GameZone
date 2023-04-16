@@ -31,6 +31,8 @@ app.put('/updateGames/:id', updateGamesHandler);
 app.post('/addWishList', addWishListHandler);
 //http://localhost:3000/addWishList
 app.get('/getAllWishList', getAllWishListHandler);
+//http://localhost:3000/DELETEwishL/2
+app.delete('/DELETEwishL/:id', deleteWishLHandler)
 
 
 
@@ -130,7 +132,7 @@ function addWishListHandler(req, res) {
 }
 
 
-function getAllWishListHandler(req,res){
+function getAllWishListHandler(req, res) {
 
     let sql = `SELECT * FROM wishlist;`
     client.query(sql).then((result) => {
@@ -138,6 +140,15 @@ function getAllWishListHandler(req,res){
         res.json(result.rows);
     }).catch()
 
+}
+
+function deleteWishLHandler(req, res) {
+    let [id] = req.params.id;
+    let sql = `DELETE FROM wishlist WHERE id = $1;`;
+    let value = [id];
+    client.query(sql, value).then(() => {
+        res.status(204).send("deleted from wishlist");
+    }).catch()
 }
 
 
