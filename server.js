@@ -87,10 +87,10 @@ function getAllGamesHandlers(req, res) {
 
 
 function addGameHandler(req, res) {
-    let { title, genre, image, review, rating, release_date, game_URL } = req.body;
-    let sql = `INSERT INTO games (title, genre, image, review, rating, release_date, game_URL) 
-    VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING *`;
-    let values = [title, genre, image, review, rating, release_date, game_URL];
+    let { title, genre, overview, image, review, rating, release_date, game_URL } = req.body;
+    let sql = `INSERT INTO games (title, genre,overview, image, review, rating, release_date, game_URL) 
+    VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *`;
+    let values = [title, genre, overview, image, review, rating, release_date, game_URL];
     client.query(sql, values).then(result => {
         res.status(201).json(result.rows);
     }).catch()
@@ -126,10 +126,10 @@ function updateGamesHandler(req, res) {
 }
 
 function addWishListHandler(req, res) {
-    let { title, genre, image, review, rating, release_date, game_URL } = req.body;
-    let sql = `INSERT INTO wishlist (title, genre, image, review, rating, release_date, game_URL) 
-        VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING *;`
-    let values = [title, genre, image, review, rating, release_date, game_URL];
+    let { title, genre, overview, image, review, rating, release_date, game_URL } = req.body;
+    let sql = `INSERT INTO wishlist (title, genre,overview, image, review, rating, release_date, game_URL) 
+        VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *;`
+    let values = [title, genre, overview, image, review, rating, release_date, game_URL];
     client.query(sql, values).then(result => {
         res.status(201).json(result.rows);
     }).catch();

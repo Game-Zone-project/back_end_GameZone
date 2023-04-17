@@ -34,6 +34,7 @@
 <li>create schema.sql file and inside create table games</li>
 <li>connect the database with schema.sql using this command ( "psql  -d games_data -f schema.sql")</li>
 <li>Create a new table "wishlist" inside schema.sql file</li>
+<li>the latest update for our database is --> now we can get and post overview for a game<li>
 </ul>
 
 # Add new Routes : to handle two tables (games,wishlist) CRUD.
