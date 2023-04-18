@@ -102,7 +102,7 @@ function addGameHandler(req, res) {
 
 
 function deleteGameHandler(req, res) {
-    let [id] = req.params.id;
+    let id = req.params.id;
     let sql = `DELETE FROM games WHERE id = $1;`;
     let value = [id];
     client.query(sql, value).then(result => {
