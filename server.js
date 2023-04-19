@@ -114,7 +114,7 @@ function deleteGameHandler(req, res) {
 }
 
 function updateGamesHandler(req, res) {
-    let [id] = req.params.id
+    let id = req.params.id
     let { review } = req.body
     let sql = "UPDATE games SET review=$1 WHERE id=$2 RETURNING *;";
     let values = [review, id];
